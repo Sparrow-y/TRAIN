@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+
+<style>
+	/*
+          旋转 rotate
+          缩放 scale
+          位移 translate
+          斜切 skew
+           */
+
+	#box {
+		margin: 200px auto;
+		padding: 50px;
+		width: 200px;
+		height: 200px;
+		border: 1px solid #000;
+		perspective: 800px;
+	}
+
+	#div {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		/* 让转换的子元素保留3D转换 */
+		transform-style: preserve-3d;
+		/* #div过渡时间为3s */
+		transition: 3s;
+	}
+
+	/*鼠标移入，#div整体旋转： 沿Y轴*/
+	#box:hover #div {
+		transform: rotateY(360deg);
+	}
+
+	#div div {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		font: 100px/200px "宋体";
+		text-align: center;
+		transition: 3s;
+		opacity: .4;
+		color: white;
+
+	}
+
+	#div .a {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		top: 50px;
+		left: 50px;
+		font: 50px/100px "宋体";
+		text-align: center;
+		color: white;
+	}
+
+	/* 大正方体转换到起点位置 */
+	#div div:nth-child(1) {
+		background-color: red;
+		/* z轴平移100px */
+		transform: rotateY(0deg) translateZ(100px);
+	}
+
+	#div div:nth-child(2) {
+		background-color: blue;
+		/* Y轴正方向向下 */
+		transform: rotateY(90deg) translateZ(100px);
+	}
+
+	#div div:nth-child(3) {
+		background-color: yellow;
+		transform: rotateY(180deg) translateZ(100px);
+	}
+
+	#div div:nth-child(4) {
+		background-color: yellowgreen;
+		transform: rotateY(270deg) translateZ(100px);
+	}
+
+	#div div:nth-child(5) {
+		background-color: green;
+		transform: rotateX(90deg) translateZ(100px);
+	}
+
+	#div div:nth-child(6) {
+		background-color: pink;
+		transform: rotateX(-90deg) translateZ(100px);
+	}
+
+	/* 鼠标移入，相对起点转换到后来的位置 */
+	#box:hover #div div:nth-child(1) {
+		transform: translateZ(300px);
+	}
+
+	#box:hover #div div:nth-child(2) {
+		transform: rotateY(90deg) translateZ(200px)
+	}
+
+	#box:hover #div div:nth-child(3) {
+		transform: rotateY(180deg) translateZ(200px);
+	}
+
+	#box:hover #div div:nth-child(4) {
+		transform: rotateY(270deg) translateZ(200px);
+	}
+
+	#box:hover #div div:nth-child(5) {
+		transform: rotateX(90deg) translateZ(200px);
+	}
+
+	#box:hover #div div:nth-child(6) {
+		transform: rotateX(-90deg) translateZ(200px);
+	}
+
+	/* 小正方体 */
+	#div div:nth-child(7) {
+		background-color: red;
+		transform: rotateY(0deg) translateZ(50px);
+	}
+
+	#div div:nth-child(8) {
+		background-color: blue;
+		transform: rotateY(90deg) translateZ(50px);
+	}
+
+	#div div:nth-child(9) {
+		background-color: yellow;
+		transform: rotateY(180deg) translateZ(50px);
+	}
+
+	#div div:nth-child(10) {
+		background-color: yellowgreen;
+		transform: rotateY(270deg) translateZ(50px);
+	}
+
+	#div div:nth-child(11) {
+		background-color: green;
+		transform: rotateX(90deg) translateZ(50px);
+	}
+
+	#div div:nth-child(12) {
+		background-color: pink;
+		transform: rotateX(-90deg) translateZ(100px);
+	}
+</style>
+
+<body>
+	<div id="box">
+		<div id="div">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div class="a">1</div>
+			<div class="a">2</div>
+			<div class="a">3</div>
+			<div class="a">4</div>
+			<div class="a">5</div>
+			<div class="a">6</div>
+		</div>
+	</div>
+</body>
+
+</html>
